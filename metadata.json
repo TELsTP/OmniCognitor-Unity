@@ -1,0 +1,8 @@
+{
+  "name": "TELsTP OmniCognitor Unity",
+  "description": "The Unified AI-Human Collaboration Layer for the TELsTP Global Life Sciences Network. Interfacing the 5 Pillars (Telemedicine, Education, Research, Multimedia, Wisdom) with Gemini 3 Flash.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
