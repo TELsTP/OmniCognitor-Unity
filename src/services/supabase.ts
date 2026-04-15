@@ -207,6 +207,43 @@ export class SupabaseService {
       knowledgeCount: knowledge.count || 0,
     };
   }
+
+  // --- IP Registration (Polygon) ---
+  async registerIPInDatabase(ipData: {
+    registrationId: string;
+    owner: string;
+    ipHash: string;
+    description: string;
+    registrationDate: string;
+    expirationDate: string;
+    isActive: boolean;
+  }) {
+    const { data, error } = await supabase
+      .from('ip_registrations')
+      .insert(ipData);
+
+    if (error) {
+      console.error('Supabase IP Registration Error:', error);
+    }
+    return data;
+  }
+
+  async getIPRegistrations(owner?: string) {
+    let query = supabase
+      .from('ip_registrations')
+      .select('*');
+
+    if (owner) {
+      query = query.eq('owner', owner);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error('Supabase IP Registrations Error:', error);
+    }
+    return data;
+  }
 }
 
 export const supabaseService = new SupabaseService();

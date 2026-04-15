@@ -1,0 +1,23 @@
+{
+  "name": "telstp-defi-contracts",
+  "version": "1.0.0",
+  "description": "TELsTP DeFi Smart Contracts for Research Tokenomics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "hardhat compile",
+    "deploy:polygon": "hardhat run scripts/deploy.js --network polygon",
+    "deploy:mumbai": "hardhat run scripts/deploy.js --network mumbai"
+  },
+  "keywords": ["blockchain", "defi", "research", "tokenomics"],
+  "author": "Mohamed Ayoub <architect@telstp.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.12.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3"
+  }
+}

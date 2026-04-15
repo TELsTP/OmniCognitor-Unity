@@ -30,6 +30,9 @@ import { CoAccreditationCertificate } from './CoAccreditationCertificate';
 import { githubService } from '../../services/github';
 import { cn } from '../../lib/utils';
 import { EgyptianMotif } from '../EgyptianMotif';
+import { IPRegistrationSection } from './IPRegistrationSection';
+import { TokenomicsSection } from './TokenomicsSection';
+import { ResearchIntegrationSection } from './ResearchIntegrationSection';
 
 const REPO_OWNER = 'TELsTP';
 const REPO_NAME = 'OmniCognitor-Unity';
@@ -334,6 +337,21 @@ export const UnityDashboard = () => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* IP Registration Section */}
+      <div className="mt-8">
+        <IPRegistrationSection />
+      </div>
+
+      {/* Tokenomics Section */}
+      <div className="mt-8">
+        <TokenomicsSection />
+      </div>
+
+      {/* Research Integration Section */}
+      <div className="mt-8">
+        <ResearchIntegrationSection />
       </div>
     </div>
   );

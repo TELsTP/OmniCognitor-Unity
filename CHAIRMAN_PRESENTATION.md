@@ -1,6 +1,6 @@
 # TELsTP OmniCognitor Unity - Chairman Presentation
 **Prepared by: Mohamed Ayoub (The Architect)**
-**Date:** April 14 26
+**Date:** [Insert Date]
 
 ---
 
