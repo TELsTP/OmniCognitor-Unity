@@ -1,0 +1,41 @@
+# Supabase CLI Configuration
+# TELsTP OmniCognitor Unity - Neural Network Layer
+
+[global]
+project_id = "telstp-omnicognitor-unity"
+db.port = 54322
+studio.port = 54323
+inbucket.port = 54324
+edge_functions.port = 54325
+
+[api]
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+
+[db]
+major_version = 14
+
+[studio]
+enabled = true
+
+[edge_functions]
+directory = "supabase/functions"
+
+[inbucket]
+enabled = true
+
+[realtime]
+enabled = true
+port = 4000
+
+[storage]
+enabled = true
+file_size_limit = 52428800
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/**"]
+
+[analytics]
+enabled = true
