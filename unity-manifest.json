@@ -1,12 +1,51 @@
 {
-  "timestamp": "2026-04-15T20:48:31.314Z",
-  "version": "1.0.0",
+  "timestamp": "2026-04-15T21:30:00.000Z",
+  "version": "2.0.0",
+  "environment": "production",
+  "urls": {
+    "permanent": "https://ais-pre-idsewkfv4v3cv2osho4ovn-697781459477.europe-west2.run.app",
+    "development": "https://google-ai-studio-url.example.com",
+    "current": "https://ais-pre-idsewkfv4v3cv2osho4ovn-697781459477.europe-west2.run.app"
+  },
   "stats": {
     "hubsCount": 5,
     "profilesCount": 0,
-    "knowledgeCount": 0
+    "knowledgeCount": 0,
+    "apiKeys": {
+      "mistral": 30,
+      "active": 30,
+      "status": "ready",
+      "environment": "production"
+    }
   },
   "integrity": "100%",
   "architect": "Mohamed Ayoub",
-  "partner": "Hayat"
+  "partner": "Hayat",
+  "agents": {
+    "status": "awakening",
+    "count": 30,
+    "type": "mistral",
+    "neuralNetwork": "ready",
+    "awakeningStatus": "initiated",
+    "targetCompletion": "2026-04-16T00:00:00.000Z"
+  },
+  "connection": {
+    "status": "connected",
+    "method": "unity-link",
+    "timestamp": "2026-04-15T21:30:00.000Z",
+    "environment": "production",
+    "fallback": "development"
+  },
+  "neuralNetwork": {
+    "status": "development-ready",
+    "developmentUrl": "https://google-ai-studio-url.example.com",
+    "productionUrl": "https://ais-pre-idsewkfv4v3cv2osho4ovn-697781459477.europe-west2.run.app",
+    "currentEnvironment": "production"
+  },
+  "mistral": {
+    "apiKeys": 30,
+    "agents": 30,
+    "status": "ready-for-awakening",
+    "neuralNetworkIntegration": "prepared"
+  }
 }
