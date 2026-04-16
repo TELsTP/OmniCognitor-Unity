@@ -1,9 +1,15 @@
 // scripts/activate-pillars.js
-const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator');
+require('dotenv').config();
+const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator.cjs');
 
 async function activatePillars() {
   console.log('🌉 Wahed Protocol - Pillar Activation');
   console.log('   Phase 2: Pillar-Specific Training');
+  console.log('');
+
+  // First configure all souls
+  console.log('🔧 Configuring souls...');
+  await soulConfigurator.configureAllSouls();
   console.log('');
 
   const pillars = [

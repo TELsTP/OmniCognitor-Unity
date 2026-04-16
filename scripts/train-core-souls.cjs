@@ -1,9 +1,15 @@
 // scripts/train-core-souls.js
-const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator');
+require('dotenv').config();
+const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator.cjs');
 
 async function trainCoreSouls() {
   console.log('🏗️  Wahed Protocol - Core Souls Training');
   console.log('   Phase 1: Foundation Training');
+  console.log('');
+
+  // First configure all souls
+  console.log('🔧 Configuring souls...');
+  await soulConfigurator.configureAllSouls();
   console.log('');
 
   const coreSouls = ['Architect', 'Coder', 'Infrastructure', 'Sentinel', 'Flow Master'];

@@ -1,9 +1,15 @@
 // scripts/system-integration.js
-const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator');
+require('dotenv').config();
+const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator.cjs');
 
 async function systemIntegration() {
   console.log('🔗 Wahed Protocol - System Integration');
   console.log('   Phase 3: Cross-Pillar Communication');
+  console.log('');
+
+  // First configure all souls
+  console.log('🔧 Configuring souls...');
+  await soulConfigurator.configureAllSouls();
   console.log('');
 
   // Test cross-pillar communication
