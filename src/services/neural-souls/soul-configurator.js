@@ -1,7 +1,7 @@
 // src/services/neural-souls/soul-configurator.ts
 import { keyDistributor } from './key-distributor';
 
-export class NeuralSoulConfigurator {
+class NeuralSoulConfigurator {
   private souls: Record<string, {
     pillar: string;
     archetype: string;
@@ -184,4 +184,5 @@ export class NeuralSoulConfigurator {
   }
 }
 
-export const soulConfigurator = new NeuralSoulConfigurator();
+const soulConfigurator = new NeuralSoulConfigurator();
+module.exports = { soulConfigurator };

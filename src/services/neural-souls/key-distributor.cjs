@@ -1,13 +1,9 @@
-// src/services/neural-souls/key-distributor.ts
-export class NeuralSoulKeyDistributor {
-  private keyPool: Record<string, string[]>;
-  private soulAssignments: Record<string, string>;
-  private usageStats: Record<string, number>;
-
+// src/services/neural-souls/key-distributor.cjs
+class NeuralSoulKeyDistributor {
   constructor() {
     // Initialize key pools
     this.keyPool = {
-      mistral: this.loadKeys('MISTRAL', 20),
+      mistral: this.loadKeys('MISTRAL', 44),
       gemini: this.loadKeys('GEMINI', 5),
       anthropic: this.loadKeys('ANTHROPIC', 2),
       openai: this.loadKeys('OPENAI', 2),
@@ -21,8 +17,8 @@ export class NeuralSoulKeyDistributor {
     this.usageStats = {};
   }
 
-  private loadKeys(prefix: string, count: number): string[] {
-    const keys: string[] = [];
+  loadKeys(prefix, count) {
+    const keys = [];
     for (let i = 1; i <= count; i++) {
       const key = process.env[`${prefix}_API_KEY_${i}`];
       if (key && key !== 'undefined') {
@@ -33,7 +29,7 @@ export class NeuralSoulKeyDistributor {
   }
 
   // Assign key to neural soul
-  assignKey(soulId: string, preferredType: 'mistral' | 'gemini' | 'specialized' = 'mistral'): string {
+  assignKey(soulId, preferredType = 'mistral') {
     // Check if already assigned
     if (this.soulAssignments[soulId]) {
       return this.soulAssignments[soulId];
@@ -51,7 +47,7 @@ export class NeuralSoulKeyDistributor {
     // Fallback to specialized keys
     for (const [type, keys] of Object.entries(this.keyPool)) {
       if (type !== 'mistral' && type !== 'gemini' && keys.length > 0) {
-        return this.assignFromPool(soulId, type as keyof typeof this.keyPool);
+        return this.assignFromPool(soulId, type);
       }
     }
 
@@ -59,9 +55,9 @@ export class NeuralSoulKeyDistributor {
     throw new Error(`No API keys available for ${soulId}`);
   }
 
-  private assignFromPool(soulId: string, poolName: keyof typeof this.keyPool): string {
+  assignFromPool(soulId, poolName) {
     const pool = this.keyPool[poolName];
-    const key = pool.shift()!; // Remove from pool
+    const key = pool.shift(); // Remove from pool
     
     this.soulAssignments[soulId] = key;
     this.usageStats[soulId] = (this.usageStats[soulId] || 0) + 1;
@@ -71,7 +67,7 @@ export class NeuralSoulKeyDistributor {
   }
 
   // Get key for specific soul
-  getKey(soulId: string): string {
+  getKey(soulId) {
     if (!this.soulAssignments[soulId]) {
       // Auto-assign if not already assigned
       const preferredType = this.getPreferredTypeForSoul(soulId);
@@ -80,7 +76,7 @@ export class NeuralSoulKeyDistributor {
     return this.soulAssignments[soulId];
   }
 
-  private getPreferredTypeForSoul(soulId: string): 'mistral' | 'gemini' | 'specialized' {
+  getPreferredTypeForSoul(soulId) {
     // Core souls get specialized keys
     const coreSouls = ['Architect', 'Coder', 'Infrastructure', 'Sentinel', 'Flow Master'];
     if (coreSouls.includes(soulId)) return 'specialized';
@@ -94,7 +90,7 @@ export class NeuralSoulKeyDistributor {
   }
 
   // Get usage statistics
-  getUsageStats(): Record<string, number> {
+  getUsageStats() {
     return { ...this.usageStats };
   }
 
@@ -104,9 +100,10 @@ export class NeuralSoulKeyDistributor {
     this.usageStats = {};
     // Reload keys
     Object.keys(this.keyPool).forEach(type => {
-      this.keyPool[type as keyof typeof this.keyPool] = this.loadKeys(type, 100); // Reload all
+      this.keyPool[type] = this.loadKeys(type, 100); // Reload all
     });
   }
 }
 
-export const keyDistributor = new NeuralSoulKeyDistributor();
+const keyDistributor = new NeuralSoulKeyDistributor();
+module.exports = { keyDistributor };

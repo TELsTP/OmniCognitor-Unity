@@ -1,5 +1,6 @@
 // scripts/wahed-protocol.js
-const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator');
+require('dotenv').config();
+const { soulConfigurator } = require('../src/services/neural-souls/soul-configurator.cjs');
 
 async function wahedProtocol() {
   console.log('🌍 TELsTP Wahed Protocol - Unified Training System');
@@ -9,17 +10,17 @@ async function wahedProtocol() {
 
   // Phase 1: Core Souls
   console.log('🏗️  Phase 1: Foundation Training');
-  await require('./train-core-souls')();
+  await require('./train-core-souls.cjs')();
   console.log('');
 
   // Phase 2: Pillar Activation
   console.log('🌉 Phase 2: Pillar Activation');
-  await require('./activate-pillars')();
+  await require('./activate-pillars.cjs')();
   console.log('');
 
   // Phase 3: System Integration
   console.log('🔗 Phase 3: System Integration');
-  await require('./system-integration')();
+  await require('./system-integration.cjs')();
   console.log('');
 
   // Final System Check
