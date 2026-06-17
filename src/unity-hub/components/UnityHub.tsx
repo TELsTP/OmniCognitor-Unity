@@ -4,19 +4,6 @@ import { HubId } from '../types';
 import EducationHub from './hubs/EducationHub';
 import ResearchHub from './hubs/ResearchHub';
 import BiotechHub from './hubs/BiotechHub';
-import HealthcareHub from './hubs/HealthcareHub';
-import AnalyticsHub from './hubs/AnalyticsHub';
-import InvestmentHub from './hubs/InvestmentHub';
-import CommunityHub from './hubs/CommunityHub';
-import MentorshipHub from './hubs/MentorshipHub';
-import PolicyHub from './hubs/PolicyHub';
-import AICompanionHub from './hubs/AICompanionHub';
-import GlobalImpactHub from './hubs/GlobalImpactHub';
-import IntegrationHub from './hubs/IntegrationHub';
-import UnityNavbar from './UnityNavbar';
-import UnitySidebar from './UnitySidebar';
-import UnityDashboard from './UnityDashboard';
-import UnityFooter from './UnityFooter';
 import LoadingSpinner from './ui/LoadingSpinner';
 import ErrorAlert from './ui/ErrorAlert';
 import NotificationCenter from './ui/NotificationCenter';
@@ -39,24 +26,6 @@ const UnityHub: React.FC = () => {
         return <ResearchHub />;
       case 'biotech':
         return <BiotechHub />;
-      case 'healthcare':
-        return <HealthcareHub />;
-      case 'analytics':
-        return <AnalyticsHub />;
-      case 'investment':
-        return <InvestmentHub />;
-      case 'community':
-        return <CommunityHub />;
-      case 'mentorship':
-        return <MentorshipHub />;
-      case 'policy':
-        return <PolicyHub />;
-      case 'ai-companion':
-        return <AICompanionHub />;
-      case 'global-impact':
-        return <GlobalImpactHub />;
-      case 'integration':
-        return <IntegrationHub />;
       default:
         return <EducationHub />;
     }
@@ -82,29 +51,12 @@ const UnityHub: React.FC = () => {
         </div>
       )}
 
-      {/* Main Layout */}
+      {/* Main Content */}
       <div className="flex flex-col min-h-screen">
-        {/* Navbar */}
-        <UnityNavbar />
-
-        <div className="flex flex-1 overflow-hidden">
-          {/* Sidebar */}
-          <UnitySidebar />
-
-          {/* Main Content */}
-          <main className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">
-            {/* Dashboard Overview */}
-            <UnityDashboard />
-
-            {/* Active Hub Content */}
-            <div className="mt-8">
-              {renderActiveHub()}
-            </div>
-          </main>
-        </div>
-
-        {/* Footer */}
-        <UnityFooter />
+        {/* Active Hub Content */}
+        <main className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">
+          {renderActiveHub()}
+        </main>
       </div>
     </div>
   );
