@@ -128,4 +128,5 @@ LocalProperties
 !**/.git/**
 
 # Mistral workflow ignore
-mistral-workflow/.env
+mistral-workflow/.envnode_modules/
+dist/
